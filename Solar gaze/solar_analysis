@@ -1,0 +1,74 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# --- CONFIGURATION ---
+INPUT_FILE = "satellite_input.png"  # Your screenshot
+OUTPUT_FILE = "solar_analysis_output.jpg"
+
+def analyze_roofs(image_path):
+    print(f"📡 Scanning {image_path} for solar potential...")
+    
+    # 1. Load Image
+    img = cv2.imread(image_path)
+    if img is None:
+        print("❌ Error: Could not find image! Check the filename.")
+        return
+
+    # 2. Convert to HSV (Hue, Saturation, Value) - easier for color detection
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    
+    # 3. Define "Rooftop" Colors (Grey/White/Concrete)
+    # These numbers define the color range for "Building Material"
+    lower_grey = np.array([0, 0, 150])    # Brightness > 150 (ignores dark roads)
+    upper_grey = np.array([180, 50, 255]) # Low Saturation (ignores green trees)
+    
+    # 4. Create a Mask (The AI "Selection")
+    mask = cv2.inRange(hsv, lower_grey, upper_grey)
+    
+    # 5. Clean up noise (remove tiny dots)
+    kernel = np.ones((3,3), np.uint8)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+    
+    # 6. Calculate Solar Stats
+    total_pixels = img.shape[0] * img.shape[1]
+    roof_pixels = cv2.countNonZero(mask)
+    roof_area_sqft = roof_pixels * 5  # Rough estimate: 1 pixel = 5 sqft
+    potential_kw = roof_area_sqft * 0.015 # 15 watts per sqft
+    
+    print(f"✅ Detection Complete!")
+    print(f"🏠 Estimated Roof Area: {roof_area_sqft:,} sqft")
+    print(f"⚡ Solar Potential: {potential_kw:,.1f} kW")
+    
+    # 7. VISUALIZATION (The "Classy" Overlay)
+    # We will color the detected roofs Neon Green
+    
+    # Create a green layer
+    green_layer = np.zeros_like(img)
+    green_layer[:] = [0, 255, 0] # BGR format: Green
+    
+    # Blend it specifically where the mask is
+    # This creates the "Glowing Roof" effect
+    result = img.copy()
+    cv2.addWeighted(green_layer, 0.3, result, 0.7, 0, result) # Make it transparent
+    
+    # Apply mask: Only show green on the roofs
+    final_output = img.copy()
+    final_output[mask > 0] = result[mask > 0]
+    
+    # 8. Add Text to Image (Like a HUD)
+    text = f"SOLAR POTENTIAL: {int(potential_kw)} kW"
+    cv2.putText(final_output, text, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 
+                1.5, (0, 255, 0), 3, cv2.LINE_AA)
+    
+    # 9. Save and Show
+    cv2.imwrite(OUTPUT_FILE, final_output)
+    print(f"💾 Output saved to {OUTPUT_FILE}")
+    
+    # Show in a pop-up window
+    cv2.imshow("Solar Gaze Analysis", final_output)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+# --- RUN IT ---
+analyze_roofs(INPUT_FILE)

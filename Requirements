@@ -1,0 +1,13 @@
+streamlit
+opencv-python-headless
+pandas
+numpy
+matplotlib
+groq
+folium
+ftfy
+regex
+tqdm
+git+https://github.com/openai/CLIP.git
+torch
+Pillow
