@@ -73,11 +73,26 @@ The system uses a hybrid retrieval pipeline to balance speed and semantic unders
     * *Issue:* The model embeds static frames, not video clips. It cannot distinguish between "A car turning right" and "A car driving straight."
     * *Solution:* Upgrade to **VideoMAE** or **X-CLIP** to capture temporal dynamics and motion vectors.
 
-## 🛰️ Project 2: Solar-Gaze (Satellite ROI Analyzer)
+## 🛰️ Project 2: Solar-Gaze (AI-Powered Solar ROI)
 **"Business Intelligence for Renewable Energy"**
-* **Tech Stack:** OpenCV (Computer Vision), Folium, Streamlit.
-* **What it does:** Analyzes satellite imagery of Islamabad to detect rooftop surface area automatically. It calculates potential solar energy yield and financial ROI in real-time.
-* **Key Feature:** Automated segmentation of concrete vs. vegetation using HSV color masking.
+<img width="1887" height="896" alt="{FBE37E6F-3469-4EA3-8932-E6AE6BB100F3}" src="https://github.com/user-attachments/assets/dff26422-030e-4585-9cd2-721bf726eaf9" />
+
+* **Tech Stack:** OpenCV (Computer Vision), Folium, Streamlit, NumPy, PyArrow.
+* **What it does:** A hybrid intelligence dashboard that combines satellite imagery with financial modeling. It allows users to analyze specific sectors of Islamabad (e.g., F-7, Blue Area) and uses **Computer Vision** to estimate usable rooftop surface area from satellite snapshots. It then calculates potential solar energy yield and financial ROI in real-time based on 2026 NEPRA tariffs.
+
+### 🚀 Key Features
+* **Automated Segmentation:** Uses HSV color masking (OpenCV) to mathematically distinguish concrete rooftops from vegetation in user-uploaded satellite images.
+* **Dynamic ROI Engine:** Instantly calculates Payback Period and Annual Savings as users adjust system size via interactive sliders.
+* **Geospatial Navigation:** Integrated `folium` maps for high-resolution satellite inspection of residential and commercial zones.
+* **Real-Time Financials:** Pre-configured with Islamabad's average irradiance (5.2 kWh/m²/day) and current electricity rates (65 PKR/unit) for accurate forecasting.
+
+### ⚠️ Limitations & Roadmap
+* **Human-in-the-Loop Segmentation:** The current V1 uses a semi-automated workflow where the user must take a screenshot of the map and upload it for analysis.
+    * *Roadmap:* Integrate **Google Solar API** or **Mask R-CNN** to auto-detect roof boundaries directly on the live map without manual uploading.
+* **Satellite Resolution:** Utilizes free Esri World Imagery, which limits zoom clarity for small residential roofs.
+    * *Roadmap:* Acquire commercial satellite tiles (Maxar/Airbus) for sub-meter precision.
+* **Color-Based Masking:** The HSV masking algorithm relies on color contrast (Green vs. Grey). It may struggle with grey roads looking like roofs or green roofs looking like trees.
+    * *Roadmap:* Upgrade to a Deep Learning Semantic Segmentation model (U-Net) for context-aware detection.
 
 ## 🤖 Project 3: Auto-Analyst (Agentic Data Scientist)
 **"Self-Coding AI Agent"**
