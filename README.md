@@ -94,13 +94,8 @@ The system uses a hybrid retrieval pipeline to balance speed and semantic unders
 * **Color-Based Masking:** The HSV masking algorithm relies on color contrast (Green vs. Grey). It may struggle with grey roads looking like roofs or green roofs looking like trees.
     * *Roadmap:* Upgrade to a Deep Learning Semantic Segmentation model (U-Net) for context-aware detection.
 
-## 🤖 Project 3: Auto-Analyst (Agentic Data Scientist)
-**"Self-Coding AI Agent"**
-* **Tech Stack:** Groq API (Llama 3), Pandas, Matplotlib, Python Exec().
-* **What it does:** An autonomous agent that accepts raw datasets and executes its own Python code to generate visualizations and insights.
-* **Key Feature:** Implements a "Code-Execution Sandbox" allowing the AI to debug and run its own scripts.
 
----
+
 
 ### 💻 How to Run
 1. Clone the repo:
@@ -109,3 +104,20 @@ The system uses a hybrid retrieval pipeline to balance speed and semantic unders
    `pip install -r requirements.txt`
 3. Run the apps:
    `streamlit run Project_3_auto analyst/agent_app.py`
+
+   
+   ## 💻 Technical Skills
+
+| Domain | Technologies |
+| :--- | :--- |
+| **Languages** | Python, SQL, C++ |
+| **Computer Vision** | OpenCV, NumPy, Image Processing, HSV Masking |
+| **NLP & AI** | OpenAI API, RAG, ChromaDB, LangChain, Vector Search |
+| **Data Science** | Pandas, Matplotlib, Plotly, Scikit-Learn |
+| **Deployment** | Streamlit, Git, PyArrow |
+
+---
+
+### 📫 Connect with Me
+* [LinkedIn](www.linkedin.com/in/siyam-waheed-1b481832b)
+* [Email](waheedsiyam315@gmail.com)
