@@ -119,5 +119,5 @@ The system uses a hybrid retrieval pipeline to balance speed and semantic unders
 ---
 
 ### 📫 Connect with Me
-* [LinkedIn](www.linkedin.com/in/siyam-waheed-1b481832b)
+* [LinkedIn](www.linkedin.com/in/siyam-waheed)
 * [Email](waheedsiyam315@gmail.com)
