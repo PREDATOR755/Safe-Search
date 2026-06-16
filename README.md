@@ -82,12 +82,15 @@ The system uses a hybrid retrieval pipeline to balance speed and semantic unders
    
    ## 💻 Technical Skills
 
-**Domain**,**Technologies**
-Languages,"Python, SQL, C++, Java"
-Computer Vision & Embeddings,"CLIP (ViT), FAISS (Vector Indexing), OpenCV, Vector Search, Image Processing"
-AI & NLP,"OpenAI API, LLMs, RAG, LangChain, ChromaDB"
-Data Science & Analytics,"Pandas, NumPy, Scikit-Learn, Matplotlib, Plotly"
-Deployment & Tools,"Streamlit, Git, PyArrow, GitHub Actions"
+## 💻 Technical Skills
+
+| Domain | Technologies |
+| :--- | :--- |
+| **Languages** | Python, SQL, C++, Java |
+| **Computer Vision & Embeddings** | CLIP (ViT), FAISS (Vector Indexing), OpenCV, Vector Search, Image Processing |
+| **AI & NLP** | OpenAI API, LLMs, RAG, LangChain, ChromaDB |
+| **Data Science & Analytics** | Pandas, NumPy, Scikit-Learn, Matplotlib, Plotly |
+| **Deployment & Tools** | Streamlit, Git, PyArrow, GitHub Actions |
 
 ---
 
